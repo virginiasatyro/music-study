@@ -3,7 +3,7 @@
 const LESSON_TYPES = {
   exercicio: {
     group: "Exercícios",
-    badge: "EXERCÍCIO",
+    badge: "EXERCÍCIOS",
     symbol: "⌁",
     symbolClass: "warm-symbol",
     typeClass: "type-warm",
@@ -33,6 +33,40 @@ function getLessonsByType(type) {
   return getAllLessons().filter((entry) => entry.lesson.type === type);
 }
 
+function formatPages(parts) {
+  const pages = [...new Set(parts.map((part) => part.page))].sort((a, b) => a - b);
+  if (pages.length === 1) {
+    return `p. ${pages[0]}`;
+  }
+
+  const sequential = pages.every((page, index) => index === 0 || page === pages[index - 1] + 1);
+  return sequential ? `pp. ${pages[0]}–${pages[pages.length - 1]}` : `p. ${pages.join(", ")}`;
+}
+
+function createPartsList(parts) {
+  const list = document.createElement("ul");
+  list.className = "content-parts";
+
+  for (const part of parts) {
+    const item = document.createElement("li");
+    const name = document.createElement("span");
+    name.textContent = part.title;
+    const page = document.createElement("b");
+    page.textContent = `p. ${part.page}`;
+    item.append(name, page);
+
+    if (part.focus) {
+      const detail = document.createElement("small");
+      detail.textContent = part.focus;
+      item.append(detail);
+    }
+
+    list.append(item);
+  }
+
+  return list;
+}
+
 function createLessonRow({ book, lesson }) {
   const type = LESSON_TYPES[lesson.type];
 
@@ -48,16 +82,21 @@ function createLessonRow({ book, lesson }) {
   const title = document.createElement("h2");
   title.textContent = lesson.title;
 
-  const detail = document.createElement("p");
-  detail.textContent = lesson.focus || book.title;
-
   const description = document.createElement("div");
   description.className = "content-description";
-  description.append(badge, title, detail);
+  description.append(badge, title);
+
+  if (lesson.parts.length > 1) {
+    description.append(createPartsList(lesson.parts));
+  } else {
+    const detail = document.createElement("p");
+    detail.textContent = book.title;
+    description.append(detail);
+  }
 
   const page = document.createElement("span");
   page.className = "content-page";
-  page.textContent = `p. ${lesson.page}`;
+  page.textContent = formatPages(lesson.parts);
 
   const row = document.createElement("article");
   row.className = "content-row";

@@ -10,7 +10,7 @@ Abra `index.html` diretamente no navegador ou publique os arquivos no GitHub Pag
 
 - **Início / Minha sessão**: resumo e roteiro ilustrativo de uma sessão.
 - **Biblioteca**: o livro cadastrado, com a contagem de lições, exercícios e peças.
-- **Conteúdos**: as lições do livro, agrupadas em exercícios e peças e ordenadas por página.
+- **Conteúdos**: as lições do livro, agrupadas em exercícios e peças; cada lição de exercícios lista os seus exercícios e páginas.
 - **Histórico**: exemplo de sessões anteriores.
 - **Configurações**: prévia das preferências do perfil e dos estudos.
 
@@ -18,11 +18,22 @@ Valores de Início, Histórico e Configurações ainda são fictícios. Nesta et
 
 ## Livro cadastrado
 
-`Iniciação ao Violão` — Henrique Pinto: 22 lições indicadas por página, sendo 12 exercícios de técnica e 10 peças. Os dados ficam em `js/books.js` no formato abaixo, e cada lição aceita `focus` (opcional) com a orientação do exercício:
+`Iniciação ao Violão` — Henrique Pinto: 13 lições, sendo 3 lições de exercícios (12 exercícios no total) e 10 peças. Cada bloco de exercícios numerados é uma lição única, e os exercícios ficam em `parts` com a página e a orientação de cada um:
 
 ```js
-{ id: "exercicio-01", type: "exercicio", page: 17, title: "Primeiro exercício", focus: "Uso do indicador, médio e anelar" }
+{
+  id: "licao-exercicios-01",
+  type: "exercicio",
+  title: "Exercícios 1 a 3",
+  parts: [
+    { page: 17, title: "Primeiro exercício", focus: "Uso do indicador, médio e anelar" },
+  ],
+}
 ```
+
+As peças têm uma única parte, por exemplo `{ id: "licao-peca-01", type: "peca", title: "Andante", parts: [{ page: 34 }] }`.
+
+Cada livro também guarda `instrument` e `style` (aqui, `"Violão"` e `"Clássico"`), usados no cabeçalho do cartão na Biblioteca.
 
 ## Estrutura
 

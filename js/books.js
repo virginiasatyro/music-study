@@ -5,9 +5,10 @@ const BOOKS = [
     id: "iniciacao-ao-violao",
     title: "Iniciação ao Violão",
     author: "Henrique Pinto",
-    category: "VIOLÃO · MÉTODO",
+    instrument: "Violão",
+    style: "Clássico",
     description:
-      "Método de introdução ao violão, com exercícios de técnica para a mão direita e as primeiras peças. As lições seguem a ordem e a página indicadas no livro.",
+      "Método de introdução ao violão, com exercícios de técnica para a mão direita e as primeiras peças. Cada bloco de exercícios numerados forma uma lição única; as lições seguem a ordem e a página indicadas no livro.",
     cover: {
       label: "HENRIQUE PINTO",
       lines: ["Iniciação", "ao Violão"],
@@ -15,38 +16,63 @@ const BOOKS = [
       glyph: "𝄞",
     },
     lessons: [
-      { id: "exercicio-01", type: "exercicio", page: 17, title: "Primeiro exercício", focus: "Uso do indicador, médio e anelar" },
-      { id: "exercicio-02", type: "exercicio", page: 19, title: "Segundo exercício", focus: "Uso do polegar" },
-      { id: "exercicio-03", type: "exercicio", page: 21, title: "Terceiro exercício", focus: "Combinação do polegar com o indicador, médio e anelar" },
-      { id: "exercicio-04", type: "exercicio", page: 26, title: "Primeiro exercício", focus: "Sobre a 6ª corda" },
-      { id: "exercicio-05", type: "exercicio", page: 26, title: "Segundo exercício", focus: "Sobre a 5ª corda" },
-      { id: "exercicio-06", type: "exercicio", page: 27, title: "Terceiro exercício", focus: "Sobre a 4ª corda" },
-      { id: "exercicio-07", type: "exercicio", page: 27, title: "Quarto exercício", focus: "Sobre a 6ª, 5ª e 4ª cordas" },
-      { id: "exercicio-08", type: "exercicio", page: 28, title: "Exercícios combinados", focus: "Polegar com indicador, médio e anelar" },
-      { id: "exercicio-09", type: "exercicio", page: 29, title: "Primeiro exercício", focus: "Sobre a 3ª corda" },
-      { id: "exercicio-10", type: "exercicio", page: 30, title: "Segundo exercício", focus: "Sobre a 2ª corda" },
-      { id: "exercicio-11", type: "exercicio", page: 30, title: "Terceiro exercício", focus: "Sobre a 1ª corda" },
-      { id: "exercicio-12", type: "exercicio", page: 31, title: "Quarto exercício", focus: "Sobre a 3ª, 2ª e 1ª cordas" },
-      { id: "peca-01", type: "peca", page: 34, title: "Andante" },
-      { id: "peca-02", type: "peca", page: 34, title: "Poco Andante" },
-      { id: "peca-03", type: "peca", page: 35, title: "Andantino" },
-      { id: "peca-04", type: "peca", page: 36, title: "Andantino" },
-      { id: "peca-05", type: "peca", page: 37, title: "Valsa" },
-      { id: "peca-06", type: "peca", page: 38, title: "Allegretto" },
-      { id: "peca-07", type: "peca", page: 38, title: "Quase Andante" },
-      { id: "peca-08", type: "peca", page: 39, title: "Prelúdio" },
-      { id: "peca-09", type: "peca", page: 40, title: "Allegretto" },
-      { id: "peca-10", type: "peca", page: 41, title: "Andante Religioso" },
+      {
+        id: "licao-exercicios-01",
+        type: "exercicio",
+        title: "Exercícios 1 a 3",
+        parts: [
+          { page: 17, title: "Primeiro exercício", focus: "Uso do indicador, médio e anelar" },
+          { page: 19, title: "Segundo exercício", focus: "Uso do polegar" },
+          { page: 21, title: "Terceiro exercício", focus: "Combinação do polegar com o indicador, médio e anelar" },
+        ],
+      },
+      {
+        id: "licao-exercicios-02",
+        type: "exercicio",
+        title: "Exercícios sobre a 6ª, 5ª e 4ª cordas",
+        parts: [
+          { page: 26, title: "Primeiro exercício", focus: "Sobre a 6ª corda" },
+          { page: 26, title: "Segundo exercício", focus: "Sobre a 5ª corda" },
+          { page: 27, title: "Terceiro exercício", focus: "Sobre a 4ª corda" },
+          { page: 27, title: "Quarto exercício", focus: "Sobre a 6ª, 5ª e 4ª cordas" },
+          { page: 28, title: "Exercícios combinados", focus: "Polegar com indicador, médio e anelar" },
+        ],
+      },
+      {
+        id: "licao-exercicios-03",
+        type: "exercicio",
+        title: "Exercícios sobre a 3ª, 2ª e 1ª cordas",
+        parts: [
+          { page: 29, title: "Primeiro exercício", focus: "Sobre a 3ª corda" },
+          { page: 30, title: "Segundo exercício", focus: "Sobre a 2ª corda" },
+          { page: 30, title: "Terceiro exercício", focus: "Sobre a 1ª corda" },
+          { page: 31, title: "Quarto exercício", focus: "Sobre a 3ª, 2ª e 1ª cordas" },
+        ],
+      },
+      { id: "licao-peca-01", type: "peca", title: "Andante", parts: [{ page: 34 }] },
+      { id: "licao-peca-02", type: "peca", title: "Poco Andante", parts: [{ page: 34 }] },
+      { id: "licao-peca-03", type: "peca", title: "Andantino", parts: [{ page: 35 }] },
+      { id: "licao-peca-04", type: "peca", title: "Andantino", parts: [{ page: 36 }] },
+      { id: "licao-peca-05", type: "peca", title: "Valsa", parts: [{ page: 37 }] },
+      { id: "licao-peca-06", type: "peca", title: "Allegretto", parts: [{ page: 38 }] },
+      { id: "licao-peca-07", type: "peca", title: "Quase Andante", parts: [{ page: 38 }] },
+      { id: "licao-peca-08", type: "peca", title: "Prelúdio", parts: [{ page: 39 }] },
+      { id: "licao-peca-09", type: "peca", title: "Allegretto", parts: [{ page: 40 }] },
+      { id: "licao-peca-10", type: "peca", title: "Andante Religioso", parts: [{ page: 41 }] },
     ],
   },
 ];
 
-function countLessons(book) {
-  const totals = {};
+function summarizeBook(book) {
+  const summary = { lessons: book.lessons.length, exercises: 0, pieces: 0 };
   for (const lesson of book.lessons) {
-    totals[lesson.type] = (totals[lesson.type] || 0) + 1;
+    if (lesson.type === "peca") {
+      summary.pieces += 1;
+    } else {
+      summary.exercises += lesson.parts.length;
+    }
   }
-  return totals;
+  return summary;
 }
 
 function createBookCover(book) {
@@ -76,11 +102,11 @@ function createBookCover(book) {
 }
 
 function createBookRow(book) {
-  const totals = countLessons(book);
+  const summary = summarizeBook(book);
 
   const category = document.createElement("span");
   category.className = "book-category";
-  category.textContent = book.category;
+  category.textContent = `${book.instrument} · ${book.style}`;
 
   const title = document.createElement("h2");
   title.textContent = book.title;
@@ -91,9 +117,9 @@ function createBookRow(book) {
   const facts = document.createElement("ul");
   facts.className = "book-facts";
   const factList = [
-    [book.lessons.length, "lições"],
-    [totals.exercicio || 0, "exercícios"],
-    [totals.peca || 0, "peças"],
+    [summary.lessons, "lições"],
+    [summary.exercises, "exercícios"],
+    [summary.pieces, "peças"],
   ];
   for (const [amount, caption] of factList) {
     const item = document.createElement("li");
