@@ -7,6 +7,8 @@
     <meta name="theme-color" content="#f6f7f5">
     <title>Music Study — seu espaço de estudo</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/books.js" defer></script>
+    <script src="js/content.js" defer></script>
     <script src="js/app.js" defer></script>
   </head>
   <body>
@@ -66,7 +68,7 @@
         <div class="content-wrap">
           <div class="demo-banner">
             <span class="demo-dot" aria-hidden="true"></span>
-            <span><strong>Prévia da interface</strong> — os dados exibidos são fictícios e não são salvos.</span>
+            <span><strong>Prévia da interface</strong> — Biblioteca e Conteúdos usam o livro cadastrado; os demais valores são fictícios e nada é salvo.</span>
           </div>
 
           <section class="screen" id="screen-inicio" data-title="Início" aria-labelledby="home-title">
@@ -151,43 +153,23 @@
           <section class="screen" id="screen-biblioteca" data-title="Biblioteca" aria-labelledby="library-title" hidden>
             <div class="page-heading">
               <div><p class="eyebrow">SEU MATERIAL</p><h1 id="library-title">Biblioteca</h1><p class="page-subtitle">Livros e métodos que acompanham sua jornada.</p></div>
-              <span class="sample-tag">EXEMPLOS</span>
+              <span class="sample-tag" id="library-tag">1 LIVRO</span>
             </div>
-            <div class="intro-strip"><span class="intro-icon">▤</span><span><strong>Sua estante musical</strong><small>Uma prévia de como seus métodos poderão ser organizados.</small></span><span class="strip-count">03 itens</span></div>
-            <div class="books-grid">
-              <article class="book-card">
-                <div class="book-cover cover-blue"><span>BEYER</span><strong>Escola<br>Preparatória</strong><small>OP. 101</small><i>♫</i></div>
-                <div class="book-info"><span class="book-category">PIANO · MÉTODO</span><h2>Escola Preparatória</h2><p>Ferdinand Beyer</p><div class="book-progress"><span><i style="width: 38%"></i></span><small>12 de 32 lições</small></div></div>
-              </article>
-              <article class="book-card">
-                <div class="book-cover cover-sage"><span>HANON</span><strong>O Pianista<br>Virtuoso</strong><small>60 EXERCÍCIOS</small><i>𝄞</i></div>
-                <div class="book-info"><span class="book-category">PIANO · TÉCNICA</span><h2>O Pianista Virtuoso</h2><p>Charles-Louis Hanon</p><div class="book-progress"><span><i style="width: 22%"></i></span><small>13 de 60 exercícios</small></div></div>
-              </article>
-              <article class="book-card">
-                <div class="book-cover cover-rose"><span>ALFRED</span><strong>Curso<br>Adulto</strong><small>LIVRO 1</small><i>♪</i></div>
-                <div class="book-info"><span class="book-category">PIANO · INICIANTE</span><h2>Curso Adulto — Livro 1</h2><p>Willard A. Palmer e outros</p><div class="book-progress"><span><i style="width: 61%"></i></span><small>19 de 31 lições</small></div></div>
-              </article>
-            </div>
+            <div class="intro-strip"><span class="intro-icon">▤</span><span><strong>Sua estante musical</strong><small>Livros e métodos cadastrados no seu espaço de estudo.</small></span><span class="strip-count" id="library-count">1 livro</span></div>
+            <div class="books-list" id="library-list"></div>
             <p class="provisional-note">Adicionar e editar livros estará disponível em uma próxima etapa.</p>
           </section>
 
           <section class="screen" id="screen-conteudos" data-title="Conteúdos" aria-labelledby="content-title" hidden>
             <div class="page-heading">
-              <div><p class="eyebrow">SEU REPERTÓRIO DE ESTUDO</p><h1 id="content-title">Conteúdos</h1><p class="page-subtitle">Exercícios, lições e peças para inspirar sua prática.</p></div>
-              <span class="sample-tag">EXEMPLOS</span>
+              <div><p class="eyebrow">SEU REPERTÓRIO DE ESTUDO</p><h1 id="content-title">Conteúdos</h1><p class="page-subtitle">Exercícios e peças do seu livro, na ordem do método.</p></div>
+              <span class="sample-tag" id="content-tag">22 LIÇÕES</span>
             </div>
             <div class="content-summary">
-              <div><span class="summary-icon icon-lilac">⌁</span><span><strong>06 conteúdos</strong><small>Organizados para sua rotina de exemplo</small></span></div>
-              <div class="summary-types"><span><i class="type-dot dot-warm"></i>Aquecimentos <b>2</b></span><span><i class="type-dot dot-blue"></i>Lições <b>2</b></span><span><i class="type-dot dot-green"></i>Peças <b>2</b></span></div>
+              <div><span class="summary-icon icon-lilac">⌁</span><span><strong id="content-total">22 lições</strong><small id="content-source">Iniciação ao Violão · Henrique Pinto</small></span></div>
+              <div class="summary-types" id="content-types"></div>
             </div>
-            <div class="content-list">
-              <article class="content-row"><span class="content-symbol warm-symbol">⌁</span><div class="content-description"><span class="content-type type-warm">AQUECIMENTO</span><h2>Escalas maiores</h2><p>Dó, Sol e Fá maior · mãos separadas</p></div><span class="difficulty difficulty-easy">Fácil</span><span class="tempo">♩ 60 BPM</span><span class="content-origin">Hanon · exercício 1</span></article>
-              <article class="content-row"><span class="content-symbol warm-symbol">⌁</span><div class="content-description"><span class="content-type type-warm">AQUECIMENTO</span><h2>Arpejos de tríades</h2><p>Movimento ascendente e descendente</p></div><span class="difficulty difficulty-medium">Médio</span><span class="tempo">♩ 72 BPM</span><span class="content-origin">Estudo pessoal</span></article>
-              <article class="content-row"><span class="content-symbol blue-symbol">▤</span><div class="content-description"><span class="content-type type-blue">LIÇÃO</span><h2>Estudo em Dó maior</h2><p>Leitura, articulação e independência</p></div><span class="difficulty difficulty-easy">Fácil</span><span class="tempo">♩ 80 BPM</span><span class="content-origin">Beyer · lição 12</span></article>
-              <article class="content-row"><span class="content-symbol blue-symbol">▤</span><div class="content-description"><span class="content-type type-blue">LIÇÃO</span><h2>Pequeno estudo em Sol</h2><p>Coordenação entre as duas mãos</p></div><span class="difficulty difficulty-hard">Difícil</span><span class="tempo">♩ 66 BPM</span><span class="content-origin">Beyer · lição 18</span></article>
-              <article class="content-row"><span class="content-symbol green-symbol">♫</span><div class="content-description"><span class="content-type type-green">PEÇA</span><h2>Minueto em Sol maior</h2><p>J. S. Bach · BWV Anh. 114</p></div><span class="difficulty difficulty-medium">Médio</span><span class="tempo">♩ 92 BPM</span><span class="content-origin">Repertório</span></article>
-              <article class="content-row"><span class="content-symbol green-symbol">♫</span><div class="content-description"><span class="content-type type-green">PEÇA</span><h2>Ode à Alegria</h2><p>Ludwig van Beethoven · versão simplificada</p></div><span class="difficulty difficulty-easy">Fácil</span><span class="tempo">♩ 76 BPM</span><span class="content-origin">Repertório</span></article>
-            </div>
+            <div class="content-groups" id="content-groups"></div>
             <p class="provisional-note">Cadastro e edição de conteúdos estarão disponíveis em uma próxima etapa.</p>
           </section>
 

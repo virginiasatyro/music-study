@@ -45,4 +45,6 @@ window.addEventListener("hashchange", () => {
   showScreen(window.location.hash.slice(1), true);
 });
 
+renderLibrary();
+renderContents();
 showScreen(window.location.hash.slice(1) || "inicio");

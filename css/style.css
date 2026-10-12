@@ -870,13 +870,14 @@ svg {
   font-size: 10px;
 }
 
-.books-grid {
+.books-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 15px;
+  gap: 13px;
 }
 
-.book-card {
+.book-row {
+  display: grid;
+  grid-template-columns: 176px minmax(0, 1fr);
   overflow: hidden;
   border: 1px solid #e9ebe7;
   border-radius: 9px;
@@ -886,17 +887,14 @@ svg {
 .book-cover {
   position: relative;
   display: flex;
-  height: 187px;
+  min-height: 196px;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  padding: 23px;
+  padding: 22px 20px;
+  background: #96705a;
   color: #fff;
 }
-
-.cover-blue { background: #708ba0; }
-.cover-sage { background: #84967f; }
-.cover-rose { background: #af8178; }
 
 .book-cover::before,
 .book-cover::after {
@@ -958,7 +956,8 @@ svg {
 }
 
 .book-info {
-  padding: 13px 14px 15px;
+  min-width: 0;
+  padding: 19px 21px;
 }
 
 .book-category {
@@ -969,41 +968,52 @@ svg {
 }
 
 .book-info h2 {
-  margin: 6px 0 2px;
+  margin: 7px 0 2px;
   font-family: "Manrope", sans-serif;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
+  letter-spacing: -0.4px;
 }
 
 .book-info p {
   margin: 0;
   color: #858c86;
-  font-size: 10px;
+  font-size: 11px;
 }
 
-.book-progress {
+.book-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin: 15px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.book-facts li {
   display: grid;
-  gap: 6px;
-  margin-top: 14px;
+  gap: 2px;
 }
 
-.book-progress > span {
-  height: 4px;
-  overflow: hidden;
-  border-radius: 3px;
-  background: #eff1ed;
+.book-facts strong {
+  color: #3d4840;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
 }
 
-.book-progress i {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: #8ba58d;
-}
-
-.book-progress small {
-  color: #858c86;
+.book-facts span {
+  color: #8b928c;
   font-size: 9px;
+}
+
+.book-note {
+  margin: 15px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid #f0f1ee;
+  color: #8c928d;
+  font-size: 10px;
+  line-height: 1.65;
 }
 
 .provisional-note {
@@ -1077,8 +1087,40 @@ svg {
 }
 
 .dot-warm { background: #d1a278; }
-.dot-blue { background: #829cb1; }
 .dot-green { background: #85a387; }
+
+.content-groups {
+  display: grid;
+}
+
+.content-group {
+  display: grid;
+  gap: 10px;
+}
+
+.content-group + .content-group {
+  margin-top: 22px;
+}
+
+.content-group-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.content-group-heading h2 {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.content-group-heading span {
+  color: #969c97;
+  font-size: 9px;
+}
 
 .content-list {
   overflow: hidden;
@@ -1089,8 +1131,8 @@ svg {
 
 .content-row {
   display: grid;
-  min-height: 70px;
-  grid-template-columns: 34px minmax(180px, 1fr) 62px 74px minmax(110px, 0.6fr);
+  min-height: 64px;
+  grid-template-columns: 34px minmax(0, 1fr) 58px;
   align-items: center;
   gap: 12px;
   padding: 9px 14px;
@@ -1111,7 +1153,6 @@ svg {
 }
 
 .warm-symbol { background: #f8f0e8; color: #b0835e; }
-.blue-symbol { background: #edf1f5; color: #70899e; }
 .green-symbol { background: #edf3ed; color: #6f9074; }
 
 .content-description {
@@ -1125,7 +1166,6 @@ svg {
 }
 
 .type-warm { color: #ad805a; }
-.type-blue { color: #728ba0; }
 .type-green { color: #6e8d71; }
 
 .content-description h2 {
@@ -1146,28 +1186,14 @@ svg {
   white-space: nowrap;
 }
 
-.difficulty {
-  justify-self: start;
-  padding: 4px 7px;
+.content-page {
+  justify-self: end;
+  padding: 4px 8px;
   border-radius: 5px;
-  font-size: 9px;
-}
-
-.difficulty-easy { background: #edf4ed; color: #66866c; }
-.difficulty-medium { background: #f7f2e7; color: #a18143; }
-.difficulty-hard { background: #f7ebea; color: #a16c65; }
-
-.tempo,
-.content-origin {
-  color: #7f8780;
+  background: #f5f6f3;
+  color: #747d75;
   font-size: 9px;
   white-space: nowrap;
-}
-
-.content-origin {
-  overflow: hidden;
-  color: #929892;
-  text-overflow: ellipsis;
 }
 
 .history-overview {
@@ -1486,14 +1512,6 @@ svg {
     padding-left: 28px;
   }
 
-  .content-row {
-    grid-template-columns: 34px minmax(150px, 1fr) 56px 68px;
-  }
-
-  .content-origin {
-    display: none;
-  }
-
   .history-row {
     grid-template-columns: 36px 110px minmax(90px, 1fr) 48px 24px;
     gap: 9px;
@@ -1543,13 +1561,8 @@ svg {
     display: flex;
     flex: 0 0 auto;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 4px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .main-nav::-webkit-scrollbar {
-    display: none;
   }
 
   .nav-link {
@@ -1670,37 +1683,47 @@ svg {
     margin-top: 11px;
   }
 
-  .books-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+  .book-row {
+    grid-template-columns: 124px minmax(0, 1fr);
   }
 
   .book-cover {
-    height: 166px;
-    padding: 17px;
+    min-height: 178px;
+    padding: 15px 13px;
+  }
+
+  .book-cover > span {
+    margin-bottom: 8px;
+    letter-spacing: 1.2px;
   }
 
   .book-cover > strong {
-    font-size: 18px;
+    font-size: 15px;
+  }
+
+  .book-cover > i {
+    right: 11px;
+    bottom: 9px;
+    font-size: 38px;
   }
 
   .book-info {
-    padding: 11px;
+    padding: 14px 13px;
   }
 
   .book-info h2 {
-    font-size: 11px;
+    font-size: 13px;
+  }
+
+  .book-facts {
+    gap: 14px;
+    margin-top: 12px;
   }
 
   .content-row {
-    grid-template-columns: 32px minmax(0, 1fr) auto;
+    grid-template-columns: 32px minmax(0, 1fr) 50px;
     gap: 9px;
     padding: 9px 10px;
-  }
-
-  .content-row .tempo,
-  .content-origin {
-    display: none;
   }
 
   .content-description h2 {
@@ -1845,6 +1868,22 @@ svg {
 
   .chart-legend {
     font-size: 8px;
+  }
+
+  .book-row {
+    grid-template-columns: 106px minmax(0, 1fr);
+  }
+
+  .book-facts {
+    gap: 11px;
+  }
+
+  .book-cover > strong {
+    font-size: 14px;
+  }
+
+  .book-note {
+    font-size: 9px;
   }
 
   .history-row {
