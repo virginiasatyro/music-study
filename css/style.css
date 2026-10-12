@@ -1,0 +1,31 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  color: #202124;
+  background: #f7f7f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: min(100% - 2rem, 48rem);
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
