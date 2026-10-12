@@ -1,1 +1,1 @@
-// Gerenciamento dos livros de estudo.
+// Reservado para uma etapa futura; os livros exibidos são exemplos estáticos.

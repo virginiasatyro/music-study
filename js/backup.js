@@ -1,1 +1,1 @@
-// Importação e exportação de dados.
+// Reservado para uma etapa futura; backup e restauração não estão implementados.

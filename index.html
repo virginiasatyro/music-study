@@ -3,15 +3,232 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Organize seus estudos de música.">
-    <title>Music Study</title>
+    <meta name="description" content="Organize seus estudos de música em um só lugar.">
+    <meta name="theme-color" content="#f6f7f5">
+    <title>Music Study — seu espaço de estudo</title>
     <link rel="stylesheet" href="css/style.css">
-    <script type="module" src="js/app.js"></script>
+    <script src="js/app.js" defer></script>
   </head>
   <body>
-    <main class="container">
-      <h1>Music Study</h1>
-      <p>Organize seus estudos de música em um só lugar.</p>
-    </main>
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação principal">
+        <a class="brand" href="#inicio" aria-label="Music Study — início">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M5 18h4l3-8 5 15 4-11 2 4h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-name">music<span>study</span></span>
+        </a>
+
+        <p class="nav-caption">ESPAÇO DE ESTUDO</p>
+        <nav class="main-nav">
+          <a class="nav-link" href="#inicio" data-screen="inicio" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>
+            <span>Início <span class="nav-detail">Minha sessão</span></span>
+          </a>
+          <a class="nav-link" href="#biblioteca" data-screen="biblioteca">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M8 7h8M8 11h6"/></svg>
+            <span>Biblioteca</span>
+          </a>
+          <a class="nav-link" href="#conteudos" data-screen="conteudos">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 1 4 17.5z"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+            <span>Conteúdos</span>
+          </a>
+          <a class="nav-link" href="#historico" data-screen="historico">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v5h5M3.5 8a9 9 0 1 1-.2 7"/><path d="M12 7v5l3 2"/></svg>
+            <span>Histórico</span>
+          </a>
+          <a class="nav-link settings-link" href="#configuracoes" data-screen="configuracoes">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.7a8.2 8.2 0 0 1-1.7 1l-.3 1.8h-2.8l-.3-1.8a8.2 8.2 0 0 1-1.7-1l-1.7.7-1.4-2.4 1.4-1.1a7.6 7.6 0 0 1 0-2l-1.4-1.1 1.4-2.4 1.7.7a8.2 8.2 0 0 1 1.7-1l.3-1.8h2.8l.3 1.8a8.2 8.2 0 0 1 1.7 1l1.7-.7 1.4 2.4-1.4 1.1a7.6 7.6 0 0 1 0 2Z" transform="translate(-1 -2)"/></svg>
+            <span>Configurações</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-note">
+            <span class="note-icon" aria-hidden="true">♫</span>
+            <div><strong>Um passo de cada vez</strong><span>Seu ritmo, sua música.</span></div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-area" id="conteudo-principal">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Meu espaço</span><span aria-hidden="true">/</span><strong id="current-page">Início</strong></div>
+          <div class="profile">
+            <span class="profile-copy"><strong>Clara</strong><span>Perfil de exemplo</span></span>
+            <span class="avatar" aria-label="Avatar de exemplo">C</span>
+          </div>
+        </header>
+
+        <div class="content-wrap">
+          <div class="demo-banner">
+            <span class="demo-dot" aria-hidden="true"></span>
+            <span><strong>Prévia da interface</strong> — os dados exibidos são fictícios e não são salvos.</span>
+          </div>
+
+          <section class="screen" id="screen-inicio" data-title="Início" aria-labelledby="home-title">
+            <div class="page-heading home-heading">
+              <div>
+                <p class="eyebrow">DOMINGO, 11 DE OUTUBRO</p>
+                <h1 id="home-title">Olá, Clara <span class="wave" aria-hidden="true">✳</span></h1>
+                <p class="page-subtitle">Um tempinho para a música faz diferença.</p>
+              </div>
+              <span class="sample-tag">EXEMPLO</span>
+            </div>
+
+            <div class="session-card">
+              <div class="session-main">
+                <div class="session-label"><span class="status-dot"></span> SUA PRÓXIMA SESSÃO</div>
+                <h2>Uma sessão leve e focada</h2>
+                <p>Um pouco de técnica, uma boa lição e tempo para tocar.</p>
+                <div class="session-meta">
+                  <span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30 min</span>
+                  <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 1 4 17.5z"/></svg>3 atividades</span>
+                </div>
+                <button class="disabled-action" type="button" disabled>Iniciar sessão <span aria-hidden="true">→</span><small>Disponível em uma próxima etapa</small></button>
+              </div>
+              <div class="session-art" aria-hidden="true">
+                <div class="art-sun"></div>
+                <div class="art-note note-one">♪</div>
+                <div class="art-note note-two">♫</div>
+                <div class="art-ring ring-one"></div>
+                <div class="art-ring ring-two"></div>
+                <div class="art-staff"><i></i><i></i><i></i><i></i><i></i><b>♫</b></div>
+              </div>
+            </div>
+
+            <div class="section-heading">
+              <div><p class="eyebrow">SEU PROGRESSO</p><h2>Uma rotina que cresce com você</h2></div>
+              <span class="muted-label">Dados de exemplo</span>
+            </div>
+            <div class="stats-grid">
+              <article class="stat-card">
+                <span class="stat-icon icon-lilac"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span>
+                <span class="stat-label">Tempo esta semana</span><strong>2h 15<span>min</span></strong>
+                <span class="stat-foot"><span class="positive">↑ 25%</span> em relação à semana passada</span>
+              </article>
+              <article class="stat-card">
+                <span class="stat-icon icon-peach"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3v3m8-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13H4V6a1 1 0 0 1 1-1Z"/><path d="m9 14 2 2 4-4"/></svg></span>
+                <span class="stat-label">Sessões concluídas</span><strong>6<span> sessões</span></strong>
+                <span class="stat-foot">Seu esforço está aparecendo.</span>
+              </article>
+              <article class="stat-card streak-card">
+                <span class="stat-icon icon-yellow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c4 0 7-3 7-7 0-2-1-4-3-6 0 2-1 3-2 3 0-5-3-8-6-10 1 5-1 7-2 10-2 5 1 10 6 10Z"/></svg></span>
+                <span class="stat-label">Sequência atual</span><strong>4<span> dias</span></strong>
+                <span class="stat-foot">Pequenos passos, grandes melodias.</span>
+              </article>
+            </div>
+
+            <div class="lower-grid">
+              <article class="panel week-panel">
+                <div class="panel-heading"><div><p class="eyebrow">CONSISTÊNCIA</p><h2>Esta semana</h2></div><span class="chart-legend"><i></i> Tempo de estudo</span></div>
+                <div class="week-chart" role="img" aria-label="Gráfico de exemplo do tempo de estudo nos últimos sete dias">
+                  <div class="chart-columns">
+                    <div class="chart-column"><span class="bar" style="--bar-height: 36%"></span><span>Seg</span></div>
+                    <div class="chart-column"><span class="bar" style="--bar-height: 68%"></span><span>Ter</span></div>
+                    <div class="chart-column"><span class="bar" style="--bar-height: 48%"></span><span>Qua</span></div>
+                    <div class="chart-column"><span class="bar" style="--bar-height: 83%"></span><span>Qui</span></div>
+                    <div class="chart-column"><span class="bar" style="--bar-height: 54%"></span><span>Sex</span></div>
+                    <div class="chart-column"><span class="bar" style="--bar-height: 72%"></span><span>Sáb</span></div>
+                    <div class="chart-column"><span class="bar today-bar" style="--bar-height: 24%"></span><span>Dom</span></div>
+                  </div>
+                </div>
+              </article>
+              <article class="panel focus-panel">
+                <div class="panel-heading"><div><p class="eyebrow">PARA HOJE</p><h2>Seu roteiro</h2></div><span class="focus-count">03</span></div>
+                <ul class="focus-list">
+                  <li><span class="focus-number">01</span><span><strong>Escalas maiores</strong><small>Aquecimento · 10 min</small></span><span class="focus-check">✓</span></li>
+                  <li><span class="focus-number">02</span><span><strong>Estudo em Dó maior</strong><small>Lição · 10 min</small></span><span class="focus-check">✓</span></li>
+                  <li><span class="focus-number">03</span><span><strong>Minueto em Sol</strong><small>Peça · 10 min</small></span><span class="focus-check">✓</span></li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="screen" id="screen-biblioteca" data-title="Biblioteca" aria-labelledby="library-title" hidden>
+            <div class="page-heading">
+              <div><p class="eyebrow">SEU MATERIAL</p><h1 id="library-title">Biblioteca</h1><p class="page-subtitle">Livros e métodos que acompanham sua jornada.</p></div>
+              <span class="sample-tag">EXEMPLOS</span>
+            </div>
+            <div class="intro-strip"><span class="intro-icon">▤</span><span><strong>Sua estante musical</strong><small>Uma prévia de como seus métodos poderão ser organizados.</small></span><span class="strip-count">03 itens</span></div>
+            <div class="books-grid">
+              <article class="book-card">
+                <div class="book-cover cover-blue"><span>BEYER</span><strong>Escola<br>Preparatória</strong><small>OP. 101</small><i>♫</i></div>
+                <div class="book-info"><span class="book-category">PIANO · MÉTODO</span><h2>Escola Preparatória</h2><p>Ferdinand Beyer</p><div class="book-progress"><span><i style="width: 38%"></i></span><small>12 de 32 lições</small></div></div>
+              </article>
+              <article class="book-card">
+                <div class="book-cover cover-sage"><span>HANON</span><strong>O Pianista<br>Virtuoso</strong><small>60 EXERCÍCIOS</small><i>𝄞</i></div>
+                <div class="book-info"><span class="book-category">PIANO · TÉCNICA</span><h2>O Pianista Virtuoso</h2><p>Charles-Louis Hanon</p><div class="book-progress"><span><i style="width: 22%"></i></span><small>13 de 60 exercícios</small></div></div>
+              </article>
+              <article class="book-card">
+                <div class="book-cover cover-rose"><span>ALFRED</span><strong>Curso<br>Adulto</strong><small>LIVRO 1</small><i>♪</i></div>
+                <div class="book-info"><span class="book-category">PIANO · INICIANTE</span><h2>Curso Adulto — Livro 1</h2><p>Willard A. Palmer e outros</p><div class="book-progress"><span><i style="width: 61%"></i></span><small>19 de 31 lições</small></div></div>
+              </article>
+            </div>
+            <p class="provisional-note">Adicionar e editar livros estará disponível em uma próxima etapa.</p>
+          </section>
+
+          <section class="screen" id="screen-conteudos" data-title="Conteúdos" aria-labelledby="content-title" hidden>
+            <div class="page-heading">
+              <div><p class="eyebrow">SEU REPERTÓRIO DE ESTUDO</p><h1 id="content-title">Conteúdos</h1><p class="page-subtitle">Exercícios, lições e peças para inspirar sua prática.</p></div>
+              <span class="sample-tag">EXEMPLOS</span>
+            </div>
+            <div class="content-summary">
+              <div><span class="summary-icon icon-lilac">⌁</span><span><strong>06 conteúdos</strong><small>Organizados para sua rotina de exemplo</small></span></div>
+              <div class="summary-types"><span><i class="type-dot dot-warm"></i>Aquecimentos <b>2</b></span><span><i class="type-dot dot-blue"></i>Lições <b>2</b></span><span><i class="type-dot dot-green"></i>Peças <b>2</b></span></div>
+            </div>
+            <div class="content-list">
+              <article class="content-row"><span class="content-symbol warm-symbol">⌁</span><div class="content-description"><span class="content-type type-warm">AQUECIMENTO</span><h2>Escalas maiores</h2><p>Dó, Sol e Fá maior · mãos separadas</p></div><span class="difficulty difficulty-easy">Fácil</span><span class="tempo">♩ 60 BPM</span><span class="content-origin">Hanon · exercício 1</span></article>
+              <article class="content-row"><span class="content-symbol warm-symbol">⌁</span><div class="content-description"><span class="content-type type-warm">AQUECIMENTO</span><h2>Arpejos de tríades</h2><p>Movimento ascendente e descendente</p></div><span class="difficulty difficulty-medium">Médio</span><span class="tempo">♩ 72 BPM</span><span class="content-origin">Estudo pessoal</span></article>
+              <article class="content-row"><span class="content-symbol blue-symbol">▤</span><div class="content-description"><span class="content-type type-blue">LIÇÃO</span><h2>Estudo em Dó maior</h2><p>Leitura, articulação e independência</p></div><span class="difficulty difficulty-easy">Fácil</span><span class="tempo">♩ 80 BPM</span><span class="content-origin">Beyer · lição 12</span></article>
+              <article class="content-row"><span class="content-symbol blue-symbol">▤</span><div class="content-description"><span class="content-type type-blue">LIÇÃO</span><h2>Pequeno estudo em Sol</h2><p>Coordenação entre as duas mãos</p></div><span class="difficulty difficulty-hard">Difícil</span><span class="tempo">♩ 66 BPM</span><span class="content-origin">Beyer · lição 18</span></article>
+              <article class="content-row"><span class="content-symbol green-symbol">♫</span><div class="content-description"><span class="content-type type-green">PEÇA</span><h2>Minueto em Sol maior</h2><p>J. S. Bach · BWV Anh. 114</p></div><span class="difficulty difficulty-medium">Médio</span><span class="tempo">♩ 92 BPM</span><span class="content-origin">Repertório</span></article>
+              <article class="content-row"><span class="content-symbol green-symbol">♫</span><div class="content-description"><span class="content-type type-green">PEÇA</span><h2>Ode à Alegria</h2><p>Ludwig van Beethoven · versão simplificada</p></div><span class="difficulty difficulty-easy">Fácil</span><span class="tempo">♩ 76 BPM</span><span class="content-origin">Repertório</span></article>
+            </div>
+            <p class="provisional-note">Cadastro e edição de conteúdos estarão disponíveis em uma próxima etapa.</p>
+          </section>
+
+          <section class="screen" id="screen-historico" data-title="Histórico" aria-labelledby="history-title" hidden>
+            <div class="page-heading">
+              <div><p class="eyebrow">CADA MINUTO CONTA</p><h1 id="history-title">Histórico</h1><p class="page-subtitle">Um registro de exemplo da sua dedicação à música.</p></div>
+              <span class="sample-tag">EXEMPLOS</span>
+            </div>
+            <div class="history-overview">
+              <article><span class="overview-icon icon-lilac">◷</span><span>Tempo total<strong>8h 40min</strong></span><small>no mês</small></article>
+              <article><span class="overview-icon icon-peach">♫</span><span>Sessões<strong>18</strong></span><small>concluídas</small></article>
+              <article><span class="overview-icon icon-yellow">✳</span><span>Maior sequência<strong>7 dias</strong></span><small>em setembro</small></article>
+            </div>
+            <div class="history-section-heading"><div><p class="eyebrow">RECENTES</p><h2>Suas sessões</h2></div><span>Dados fictícios</span></div>
+            <div class="history-list">
+              <article class="history-row"><span class="history-date"><strong>11</strong><small>OUT</small></span><span class="history-day"><strong>Domingo</strong><small>Hoje, às 10:15</small></span><div class="history-activities"><span>Escalas maiores</span><span>Estudo em Dó maior</span><span>Minueto em Sol</span></div><span class="history-duration">35 <small>min</small></span><span class="history-mood mood-great" title="Sessão produtiva">✳</span></article>
+              <article class="history-row"><span class="history-date"><strong>10</strong><small>OUT</small></span><span class="history-day"><strong>Sábado</strong><small>Ontem, às 17:40</small></span><div class="history-activities"><span>Arpejos de tríades</span><span>Ode à Alegria</span></div><span class="history-duration">25 <small>min</small></span><span class="history-mood mood-calm" title="Sessão tranquila">♪</span></article>
+              <article class="history-row"><span class="history-date"><strong>08</strong><small>OUT</small></span><span class="history-day"><strong>Quinta-feira</strong><small>8 de outubro, às 18:05</small></span><div class="history-activities"><span>Escalas maiores</span><span>Pequeno estudo em Sol</span></div><span class="history-duration">30 <small>min</small></span><span class="history-mood mood-great" title="Sessão produtiva">✳</span></article>
+              <article class="history-row"><span class="history-date"><strong>06</strong><small>OUT</small></span><span class="history-day"><strong>Terça-feira</strong><small>6 de outubro, às 16:20</small></span><div class="history-activities"><span>Estudo em Dó maior</span><span>Ode à Alegria</span></div><span class="history-duration">20 <small>min</small></span><span class="history-mood mood-calm" title="Sessão tranquila">♪</span></article>
+            </div>
+            <p class="provisional-note">O registro automático de sessões estará disponível em uma próxima etapa.</p>
+          </section>
+
+          <section class="screen" id="screen-configuracoes" data-title="Configurações" aria-labelledby="settings-title" hidden>
+            <div class="page-heading">
+              <div><p class="eyebrow">DO SEU JEITO</p><h1 id="settings-title">Configurações</h1><p class="page-subtitle">As preferências da sua experiência de estudo.</p></div>
+              <span class="sample-tag">PRÉVIA</span>
+            </div>
+            <div class="settings-layout">
+              <div class="settings-main">
+                <section class="settings-card"><div class="settings-card-heading"><span class="settings-icon icon-lilac">☺</span><div><h2>Seu perfil</h2><p>Como você aparece no seu espaço de estudo.</p></div></div><div class="settings-detail"><span>Nome de exibição</span><span class="settings-value">Clara <small>Exemplo</small></span></div><div class="settings-detail"><span>Instrumento principal</span><span class="settings-value">Piano <small>Exemplo</small></span></div></section>
+                <section class="settings-card"><div class="settings-card-heading"><span class="settings-icon icon-peach">◷</span><div><h2>Preferências de estudo</h2><p>Um ponto de partida para a sua rotina.</p></div></div><div class="settings-detail"><span>Duração padrão da sessão</span><span class="settings-value">30 minutos <small>Padrão sugerido</small></span></div><div class="settings-detail"><span>Unidade de andamento</span><span class="settings-value">BPM <small>Batidas por minuto</small></span></div></section>
+                <section class="settings-card"><div class="settings-card-heading"><span class="settings-icon icon-sage">♧</span><div><h2>Seus dados</h2><p>Mais controle sobre sua biblioteca e seu progresso.</p></div></div><div class="settings-detail"><span>Backup e restauração</span><span class="coming-soon">Disponível em uma próxima etapa</span></div></section>
+              </div>
+              <aside class="settings-aside"><div class="aside-sparkle">✳</div><p class="eyebrow">FEITO PARA A SUA JORNADA</p><h2>Seu estudo, no seu ritmo.</h2><p>As preferências poderão ser personalizadas nas próximas etapas do projeto.</p><span>♫</span></aside>
+            </div>
+          </section>
+
+          <footer class="app-footer"><span>Feito para estudar com mais leveza.</span><span>musicstudy <i>·</i> estrutura inicial</span></footer>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
